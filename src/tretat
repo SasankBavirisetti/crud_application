@@ -1,0 +1,57 @@
+import React from 'react'
+import './Crud.css'
+import { useState } from 'react'
+
+
+
+export const Crud = () => {
+    const lists=
+    [
+        {
+            id:1,
+            name:'hp1',
+            price:123451
+        },
+        {
+            id:2,
+            name:'hp2',
+            price:123452
+        },
+        {
+            id:3,
+            name:'hp3',
+            price:123453
+        },
+    ]
+    const [list,setList] = useState(lists);
+  return (
+    <div className='crud'>
+        <table className='table'>
+            {
+                list.map((obj)=>(
+                    <tr>
+                        <td>{obj.name}</td>
+                        <td>{obj.price}</td>
+                        <td><button className='edit btn'>Edit</button></td>
+                        <td><button className='delete btn'>Delete</button></td>
+                    </tr>
+                ))
+            }
+        </table>
+    </div>
+  )
+}
+
+const AddList=()=>
+{
+    return 
+    (
+        <>
+        <form className='form'>
+                <input type='text' name='name' placeholder='enter name'/>
+                <input type='text' name='price' placeholder='enter price'/>
+                <button className='add-btn' type='submit'>Add</button>
+        </form>
+        </>
+    )
+}
